@@ -36,8 +36,10 @@ public class Presenter implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "continue":
-                restartGame();
-                addNewPlayer();
+            addNewPlayer();
+                if (!frame.getGameSelectionPanel().getNameTextField().getText().equals("")) {
+                    restartGame();
+                }
                 break;
             case "history":
                 loadHistory();
@@ -61,6 +63,7 @@ public class Presenter implements ActionListener {
     private void restartGame() {
         triki.setDefaultGame();
         frame.setDefaultGamePanel();
+        frame.setDefaultGameSelectionPanel();
     }
 
     private void loadHistory() {
@@ -137,6 +140,5 @@ public class Presenter implements ActionListener {
             frame.revalidate();
             frame.repaint();
         }
-        frame.setDefaultGameSelectionPanel();
     }
 }

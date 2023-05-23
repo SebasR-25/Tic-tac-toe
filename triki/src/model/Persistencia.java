@@ -15,7 +15,7 @@ public class Persistencia {
     BufferedWriter bw = null;
 
     public Persistencia() throws IOException {
-        br = new BufferedReader(new FileReader("src/resources/Hystory_game.txt"));
+        br = new BufferedReader(new FileReader("triki/src/resources/Hystory_game.txt"));
         
     }
 
@@ -23,7 +23,7 @@ public class Persistencia {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         
         try {
-            bw = new BufferedWriter(new FileWriter("src/resources/Hystory_game.txt", false));
+            bw = new BufferedWriter(new FileWriter("triki/src/resources/Hystory_game.txt", false));
             for (Player player : list) {
                 bw.write(player.getName() + ";" + player.getStatus() + ";" + player.getFigure() + ";"
                         + formatter.format(player.getDateTime()));
